@@ -4,7 +4,7 @@ wbfolder:
 import:
   fromLocal:
     files:
-      - ["./node_modules/file-saver/FileSaver.min.js", "./.tmp/lib/external/file-saver/"]
+      - ["./node_modules/file-saver/dist/FileSaver.min.js", "./.tmp/lib/external/file-saver/"]
 
       #- ["./node_modules/xlsx/dist/xlsx.full.min.js", "./.tmp/lib/external/xlsx/"]
       #- ["./node_modules/xlsx/dist/xlsx.min.map", "./.tmp/lib/external/xlsx/"]
@@ -24,3 +24,9 @@ import:
       - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.ng.html", "./.tmp/lib/components/eui-button"]
 watch:
   - "./src/**/*.*"
+deployment:
+  toLocal:
+    enabled: true
+    pathFetching: false              # By default the path will be automatically fetched.
+    localExtensionsBaseDir: "C:\\QlikShare\\StaticContent\\Extensions"
+    extensionDirOverride: "swr-sense-export"

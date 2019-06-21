@@ -39,6 +39,14 @@ define([
 
         $scope.DEBUG = $scope.layout.props.isDebugOutput || true;
         $scope.exporting = false;
+        $scope.exportDisabled = isExportDisabled();
+
+        // watch hypercube size change
+        $scope.$watchCollection('layout.qHyperCube.qSize', function (newVals, oldVals) {
+            if (newVals.qcy != oldVals.qcy) {
+                $scope.exportDisabled = isExportDisabled();
+            }
+        });
 
         // Watch the properties
         $scope.$watchCollection('layout.props', function (newVals, oldVals) {
@@ -54,6 +62,12 @@ define([
           return qlik.table === undefined;
         };
 
+        function isExportDisabled () {
+            var curExportedCells  = $scope.layout.qHyperCube.qSize.qcy *  $scope.layout.qHyperCube.qSize.qcx;
+            var maxExportCellSize = $scope.layout.props.exportMaxCells;
+            return curExportedCells > maxExportCellSize;
+        }
+
         // Returns whether we are in debug mode or not
         $scope.debug = function () {
           return (($scope.layout.props.isDebug === true) && (qlik.navigation && qlik.navigation.getMode() === 'edit'));
@@ -62,7 +76,9 @@ define([
         // Main export method
         $scope.export = function () {
 
-          $scope.exporting = true;
+            if ($scope.exportDisabled) {
+                return;
+            }
 
           switch ($scope.layout.props.exportFormat) {
             case 'OOXML':
@@ -78,7 +94,6 @@ define([
                 .then(function (retVal) {
 
                   if (exportOpts.download) {
-
                     // Again, unfortunately handling of different Qlik Sense versions.
                     // >= Qlik Sense 3.2 SR3: retVal.qUrl
                     // < Qlik Sense 3.2 SR3: retVal.result.qUrl
