@@ -51,6 +51,12 @@ define([
         // Watch the properties
         $scope.$watchCollection('layout.props', function (newVals, oldVals) {
           Object.keys(newVals).forEach(function (key) {
+
+            if (key === 'exportMaxCells') {
+                $scope.exportDisabled = isExportDisabled();
+                return;
+            }
+
             if (newVals[key] !== oldVals[key]) {
               $scope[key] = newVals[key];
             }
