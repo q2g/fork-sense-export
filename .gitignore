@@ -7,8 +7,7 @@
 .tmp
 .sense-go.local.yml
 
-build/dev
-build/release
+build
 
 # Test data
 example/fis-test.qvf

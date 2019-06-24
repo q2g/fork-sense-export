@@ -12,4 +12,7 @@
               align="layout.props.buttonAlign"
               click="export()"
               spinning="exporting"></eui-button>
+  <div ng-if="exportDisabled">
+      <strong>Note:</strong> This export will generate to much rows and is disabled.
+  </div>
 </div>

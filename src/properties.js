@@ -43,13 +43,13 @@ define([
   var dimensions = {
     uses: 'dimensions',
     min: 0,
-    max: 10
+    max: 50
   };
 
   var measures = {
     uses: 'measures',
     min: 0,
-    max: 10
+    max: 50
   };
 
   var sorting = {
@@ -211,6 +211,13 @@ define([
 
   };
 
+  var exportCellLimit = {
+      type: 'number',
+      label: 'Max amount of cells wich will exported (50 cols x 5000 rows)',
+      ref: 'props.exportMaxCells',
+      defaultValue: 250000
+  }
+
   var exportState = {
     type: 'string',
     component: 'dropdown',
@@ -227,7 +234,6 @@ define([
         label: 'Possible values'
       }
     ]
-
   };
 
   var exportFileName = {
@@ -331,7 +337,8 @@ define([
           exportDesc: exportDesc,
           exportFormat: exportFormat,
           exportState: exportState,
-          exportFileName: exportFileName
+          exportFileName: exportFileName,
+          exportMaxCells: exportCellLimit
         }
       },
       debugPanel: debugPanel
@@ -349,5 +356,4 @@ define([
       appearance: appearancePanel
     }
   };
-
 });
