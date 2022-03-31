@@ -18,10 +18,10 @@ import:
       - ["./node_modules/sense-angular-directives/dist/eui-overlay/eui-overlay.js", "./.tmp/lib/components/eui-overlay"]
       - ["./node_modules/sense-angular-directives/dist/eui-overlay/eui-overlay.css", "./.tmp/lib/components/eui-overlay"]
 
-      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-container.css", "./.tmp/lib/components/eui-button"]
-      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.js", "./.tmp/lib/components/eui-button"]
-      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.css", "./.tmp/lib/components/eui-button"]
-      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.ng.html", "./.tmp/lib/components/eui-button"]
+      - ["./src/lib/components/eui-button/eui-container.css", "./.tmp/lib/components/eui-button"]
+      - ["./src/lib/components/eui-button/eui-button.js", "./.tmp/lib/components/eui-button"]
+      - ["./src/lib/components/eui-button/eui-button.css", "./.tmp/lib/components/eui-button"]
+      - ["./src/lib/components/eui-button/eui-button.ng.html", "./.tmp/lib/components/eui-button"]
 watch:
   - "./src/**/*.*"
 deployment:

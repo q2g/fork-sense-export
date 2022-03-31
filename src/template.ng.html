@@ -10,7 +10,8 @@
               full-width="layout.props.fullWidth"
               icon="layout.props.buttonIcon"
               align="layout.props.buttonAlign"
-              click="export()"
+              click="export()",
+              disabled="exportDisabled",
               spinning="exporting"></eui-button>
   <div ng-if="exportDisabled">
       <strong>Note:</strong> This export will generate to much rows and is disabled.

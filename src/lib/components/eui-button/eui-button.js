@@ -17,7 +17,8 @@ define([
       fullWidth: '=',
       align: '=',
       click: '&',
-      spinning: '='
+      spinning: '=',
+      disabled: '='
     },
     controller: ['$scope', '$attrs', function ($scope /* , $attrs */) {
 
